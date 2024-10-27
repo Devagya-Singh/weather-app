@@ -16,14 +16,21 @@ h1 {
 .input-city {
     border: 2px solid #1976d2; /* Blue border */
     border-radius: 25px;
-    width: calc(100% - 180px); /* Adjust width for better alignment */
-    padding: 10px; /* Padding for better usability */
+    height: 50px; /* Set a specific height */
+    padding: 10px; /* Add padding to input */
 }
 
 .input-group .btn {
     border-radius: 25px; /* Rounded button corners */
-    padding: 10px 20px; /* Padding for buttons */
+    height: 50px; /* Set the same height as input */
+    padding: 0 20px; /* Optional: Add horizontal padding for better look */
 }
+
+.input-group {
+    display: flex; /* Use flexbox for better alignment */
+    align-items: stretch; /* Align items to stretch to the same height */
+}
+
 
 #weatherResult img.condition-icon, #forecast img.forecast-icon {
     margin-top: 10px;
