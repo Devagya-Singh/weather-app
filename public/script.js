@@ -73,3 +73,6 @@ function fetchWeather(city) {
             document.getElementById('forecast').innerHTML = `<p class="text-danger">Error fetching forecast data</p>`;
         });
 }
+window.onload = function() {
+    fetchWeather("Bhubaneswar"); // Fetch weather for Bhubaneswar by default
+};
