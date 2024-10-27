@@ -9,8 +9,10 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center display-4 font-weight-bold">Weather App</h1>
-        <div id="currentDateTime" class="text-center mb-4"></div>
+        <h1 class="text-center display-4 font-weight-bold">SkyScout</h1>
+        <div class="hero-image mb-4">
+            <img src="your-hero-image-url.jpg" alt="Weather Background" class="img-fluid rounded">
+        </div>
         <div class="input-group mb-4">
             <input type="text" id="city" class="form-control input-city" placeholder="Enter city name">
             <div class="input-group-append">
@@ -19,15 +21,27 @@
             </div>
         </div>
         <div id="weatherResult" class="text-center"></div>
-        <div id="additionalInfo" class="text-center"></div>
         <div id="forecast" class="mt-5 text-center"></div>
         <div id="loader" class="spinner-border" role="status" style="display: none;">
             <span class="sr-only">Loading...</span>
         </div>
+
+        <!-- Additional Info Section -->
+        <div class="info-section text-center mt-5">
+            <h3>About This App</h3>
+            <p>This weather app provides real-time weather updates and forecasts for the next three days. Use the search bar to find your city or click "Use Current Location" for instant updates!</p>
+        </div>
     </div>
+
     <footer class="text-center mt-5">
         <p>Need help? <a href="#">Contact Support</a> | <a href="#">FAQ</a></p>
+        <div class="social-links">
+            <a href="#" class="mx-2">Facebook</a>
+            <a href="#" class="mx-2">Twitter</a>
+            <a href="#" class="mx-2">Instagram</a>
+        </div>
     </footer>
+    
     <script src="public/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
