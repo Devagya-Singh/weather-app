@@ -12,17 +12,27 @@ h1 {
 .input-city {
     border: 2px solid #1976d2; /* Blue border */
     border-radius: 25px;
+    width: calc(100% - 180px); /* Adjust width for better alignment */
+    padding: 10px; /* Padding for better usability */
 }
 
 .input-group .btn {
     border-radius: 25px; /* Rounded button corners */
+    padding: 10px 20px; /* Padding for buttons */
 }
 
-#weatherResult img, #forecast img {
+#weatherResult img.condition-icon, #forecast img.forecast-icon {
     margin-top: 10px;
-    width: 100px; /* Adjust as necessary */
     border-radius: 10px; /* Rounded corners for images */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+#weatherResult img.condition-icon {
+    width: 150px; /* Larger size for current weather icon */
+}
+
+.forecast-icon {
+    width: 80px; /* Adjust size for forecast icons */
 }
 
 .card {
@@ -46,12 +56,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-.condition-icon {
-    width: 150px; /* Larger size for current weather icon */
-}
-
-.forecast-icon {
-    width: 80px; /* Adjust size for forecast icons */
 }
