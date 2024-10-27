@@ -1,8 +1,12 @@
 body {
-    background-color: #e3f2fd; /* Light blue background */
+    background: url('https://example.com/weather-background.jpg') no-repeat center center fixed; /* Replace with your background image URL */
+    background-size: cover; /* Cover the entire screen */
     font-family: 'Arial', sans-serif;
     color: #333; /* Dark text color for contrast */
 }
+
+/* Existing styles... */
+
 
 h1 {
     margin-bottom: 30px;
