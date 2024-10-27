@@ -1,5 +1,20 @@
 document.getElementById('getWeather').addEventListener('click', function() {
     const city = document.getElementById('city').value;
+    fetchWeather(city);
+});
+
+document.getElementById('getCurrentLocation').addEventListener('click', function() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            const { latitude, longitude } = position.coords;
+            fetchWeather(`latitude=${latitude}&longitude=${longitude}`);
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+});
+
+function fetchWeather(city) {
     const apiKey = '5fbfe587f7ea4e9aa4480350242710';
     const currentUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
     const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
@@ -16,12 +31,11 @@ document.getElementById('getWeather').addEventListener('click', function() {
             } else {
                 const { name, region, country } = data.location;
                 const { temp_c, condition } = data.current;
-                document.getElementById('weatherResult').innerHTML = `
-                    <h2>Weather in ${name}, ${region}, ${country}</h2>
+                document.getElementById('weatherResult').innerHTML = 
+                    `<h2>Weather in ${name}, ${region}, ${country}</h2>
                     <p>Temperature: ${temp_c}°C</p>
                     <p>Condition: ${condition.text}</p>
-                    <img src="${condition.icon}" alt="${condition.text}">
-                `;
+                    <img src="${condition.icon}" alt="${condition.text}">`;
             }
         })
         .catch(error => {
@@ -39,8 +53,8 @@ document.getElementById('getWeather').addEventListener('click', function() {
             forecastDays.forEach(day => {
                 const date = new Date(day.date).toLocaleDateString();
                 const { avgtemp_c, condition } = day.day;
-                forecastHtml += `
-                    <div class="col-md-4">
+                forecastHtml += 
+                    `<div class="col-md-4">
                         <div class="card mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">${date}</h5>
@@ -49,8 +63,7 @@ document.getElementById('getWeather').addEventListener('click', function() {
                                 <img src="${condition.icon}" alt="${condition.text}" class="card-img-bottom">
                             </div>
                         </div>
-                    </div>
-                `;
+                    </div>`;
             });
 
             forecastHtml += '</div>';
@@ -59,4 +72,4 @@ document.getElementById('getWeather').addEventListener('click', function() {
         .catch(error => {
             document.getElementById('forecast').innerHTML = `<p class="text-danger">Error fetching forecast data</p>`;
         });
-});
+}
