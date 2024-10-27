@@ -1,0 +1,12 @@
+body {
+    background-color: #f0f0f0;
+}
+
+#weatherResult img, #forecast img {
+    margin-top: 10px;
+    width: 100px; /* Adjust as necessary */
+}
+
+.card {
+    margin: 10px 0;
+}
