@@ -3,7 +3,6 @@ document.getElementById('getWeather').addEventListener('click', function() {
     fetchWeather(city);
 });
 
-
 document.getElementById('getCurrentLocation').addEventListener('click', function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
