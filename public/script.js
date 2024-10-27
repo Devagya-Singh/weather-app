@@ -17,10 +17,10 @@ document.getElementById('getCurrentLocation').addEventListener('click', function
 });
 
 function fetchWeather(query) {
-    const apiKey = '5fbfe587f7ea4e9aa4480350242710';
-    const currentUrl = `https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=city_name_or_coordinates
+    const apiKey = '7898193361d34c54984122045242710';
+    const currentUrl = `https://api.weatherapi.com/v1/current.json?key=7898193361d34c54984122045242710&q=city_name_or_coordinates
 `;
-    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=YOUR_API_KEY&q=city_name_or_coordinates&days=7
+    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=7898193361d34c54984122045242710&q=city_name_or_coordinates&days=7
 `; // 7 days forecast
 
     document.getElementById('loader').style.display = 'block'; // Show loader
