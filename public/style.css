@@ -47,3 +47,11 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
+.condition-icon {
+    width: 150px; /* Larger size for current weather icon */
+}
+
+.forecast-icon {
+    width: 80px; /* Adjust size for forecast icons */
+}
