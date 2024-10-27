@@ -7,12 +7,15 @@ document.getElementById('getCurrentLocation').addEventListener('click', function
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
-            fetchWeather(`${latitude},${longitude}`); // Use comma instead of "="
+            fetchWeather(`${latitude},${longitude}`); // Correct format for fetch
+        }, () => {
+            alert("Unable to retrieve your location.");
         });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 });
+
 
 function fetchWeather(city) {
     const apiKey = '5fbfe587f7ea4e9aa4480350242710';
