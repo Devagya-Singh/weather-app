@@ -1,30 +1,46 @@
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    background-color: #e3f2fd; /* Light blue background */
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark text color for contrast */
 }
 
 h1 {
     margin-bottom: 30px;
+    color: #1976d2; /* Blue heading color */
+}
+
+.input-city {
+    border: 2px solid #1976d2; /* Blue border */
+    border-radius: 25px;
+}
+
+.input-group .btn {
+    border-radius: 25px; /* Rounded button corners */
 }
 
 #weatherResult img, #forecast img {
     margin-top: 10px;
     width: 100px; /* Adjust as necessary */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
 
 .card {
     margin: 10px 0;
+    border-radius: 15px; /* Rounded card corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Card shadow */
 }
 
 footer {
     margin-top: 50px;
     padding: 20px 0;
-    background-color: #007bff;
+    background-color: #1976d2; /* Blue footer background */
     color: white;
+    border-radius: 10px; /* Rounded footer corners */
 }
 
 footer a {
-    color: #FFD700; /* Change link color */
+    color: #FFD700; /* Gold link color */
     text-decoration: none;
 }
 
