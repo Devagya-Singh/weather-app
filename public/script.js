@@ -7,7 +7,7 @@ document.getElementById('getCurrentLocation').addEventListener('click', function
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
-            fetchWeather(`latitude=${latitude}&longitude=${longitude}`);
+            fetchWeather(`${latitude},${longitude}`); // Use comma instead of "="
         });
     } else {
         alert("Geolocation is not supported by this browser.");
@@ -35,7 +35,7 @@ function fetchWeather(city) {
                     `<h2>Weather in ${name}, ${region}, ${country}</h2>
                     <p>Temperature: ${temp_c}°C</p>
                     <p>Condition: ${condition.text}</p>
-                    <img src="${condition.icon}" alt="${condition.text}">`;
+                    <img src="${condition.icon}" alt="${condition.text}" class="condition-icon">`; // Added class for specific styling
             }
         })
         .catch(error => {
@@ -60,7 +60,7 @@ function fetchWeather(city) {
                                 <h5 class="card-title">${date}</h5>
                                 <p class="card-text">Avg Temp: ${avgtemp_c}°C</p>
                                 <p class="card-text">${condition.text}</p>
-                                <img src="${condition.icon}" alt="${condition.text}" class="card-img-bottom">
+                                <img src="${condition.icon}" alt="${condition.text}" class="card-img-bottom forecast-icon"> <!-- Added class for specific styling -->
                             </div>
                         </div>
                     </div>`;
