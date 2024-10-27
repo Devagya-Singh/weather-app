@@ -6,25 +6,83 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="public/styles.css">
     <title>Weather App</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        #weatherResult {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        #loader {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Weather App</h1>
         <div class="input-group mb-3">
-            <input type="text" id="city" class="form-control" placeholder="Enter city name">
+            <input type="text" id="city" class="form-control" placeholder="Enter city name" aria-label="City name">
             <div class="input-group-append">
                 <button id="getWeather" class="btn btn-primary">Get Weather</button>
             </div>
         </div>
         <div id="weatherResult" class="text-center"></div>
         <div id="forecast" class="mt-5 text-center"></div>
-        <div id="loader" class="spinner-border" role="status" style="display: none;">
+        <div id="loader" class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
+
     <script src="public/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('getWeather').addEventListener('click', function() {
+            const loader = document.getElementById('loader');
+            loader.style.display = 'block'; // Show loader
+
+            const city = document.getElementById('city').value;
+            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    loader.style.display = 'none'; // Hide loader
+                    if (data.cod === 200) {
+                        const weatherResult = `
+                            <h2>${data.name}, ${data.sys.country}</h2>
+                            <p>${data.weather[0].description}</p>
+                            <h3>${data.main.temp} °C</h3>
+                        `;
+                        document.getElementById('weatherResult').innerHTML = weatherResult;
+                    } else {
+                        document.getElementById('weatherResult').innerHTML = `<p>${data.message}</p>`;
+                    }
+                })
+                .catch(error => {
+                    loader.style.display = 'none'; // Hide loader
+                    document.getElementById('weatherResult').innerHTML = `<p>Error: ${error.message}</p>`;
+                });
+        });
+    </script>
 </body>
 </html>
