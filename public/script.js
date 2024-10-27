@@ -77,12 +77,15 @@ function fetchWeather(query) {
         forecastHtml += '</div>';
         document.getElementById('forecast').innerHTML = forecastHtml;
     })
-    .catch(error => {
-        document.getElementById('loader').style.display = 'none'; // Hide loader
-        document.getElementById('weatherResult').innerHTML = `<p class="text-danger">Error fetching data</p>`;
-        document.getElementById('additionalInfo').innerHTML = ''; // Clear additional info
-        document.getElementById('forecast').innerHTML = ''; // Clear forecast info
-    });
+    fetch(currentUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Handle successful response
+  })
+  .catch(error => {
+    // Handle network error or server-side issue
+    console.error("Error fetching current weather:", error);
+  });
 
     // Display current date and time
     const currentDateTime = new Date();
