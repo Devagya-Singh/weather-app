@@ -17,7 +17,10 @@ h1 {
 
 .input-group .btn {
     border-radius: 25px; /* Rounded button corners */
+    padding: 10px 15px; /* Adjust padding for smaller size */
+    font-size: 0.875rem; /* Smaller font size */
 }
+
 
 #weatherResult img, #forecast img {
     margin-top: 10px;
