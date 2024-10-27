@@ -7,20 +7,17 @@ document.getElementById('getCurrentLocation').addEventListener('click', function
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             const { latitude, longitude } = position.coords;
-            fetchWeather(`${latitude},${longitude}`); // Correct format for fetch
-        }, () => {
-            alert("Unable to retrieve your location.");
+            fetchWeather(`latitude=${latitude}&longitude=${longitude}`);
         });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 });
 
-
 function fetchWeather(city) {
     const apiKey = '5fbfe587f7ea4e9aa4480350242710';
     const currentUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
+    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`; // 7 days forecast
 
     document.getElementById('loader').style.display = 'block'; // Show loader
 
@@ -31,19 +28,27 @@ function fetchWeather(city) {
             document.getElementById('loader').style.display = 'none'; // Hide loader
             if (data.error) {
                 document.getElementById('weatherResult').innerHTML = `<p class="text-danger">${data.error.message}</p>`;
+                document.getElementById('additionalInfo').innerHTML = ''; // Clear additional info
             } else {
                 const { name, region, country } = data.location;
-                const { temp_c, condition } = data.current;
+                const { temp_c, condition, humidity, wind_kph } = data.current;
+
+                // Display current weather and additional info
                 document.getElementById('weatherResult').innerHTML = 
                     `<h2>Weather in ${name}, ${region}, ${country}</h2>
                     <p>Temperature: ${temp_c}°C</p>
                     <p>Condition: ${condition.text}</p>
-                    <img src="${condition.icon}" alt="${condition.text}" class="condition-icon">`; // Added class for specific styling
+                    <img src="${condition.icon}" alt="${condition.text}" class="condition-icon">`;
+                
+                document.getElementById('additionalInfo').innerHTML = 
+                    `<p>Humidity: ${humidity}%</p>
+                    <p>Wind Speed: ${wind_kph} km/h</p>`;
             }
         })
         .catch(error => {
             document.getElementById('loader').style.display = 'none'; // Hide loader
             document.getElementById('weatherResult').innerHTML = `<p class="text-danger">Error fetching data</p>`;
+            document.getElementById('additionalInfo').innerHTML = ''; // Clear additional info
         });
 
     // Fetch forecast
@@ -51,7 +56,7 @@ function fetchWeather(city) {
         .then(response => response.json())
         .then(data => {
             const forecastDays = data.forecast.forecastday;
-            let forecastHtml = '<h3 class="mt-4">Next 3 Days Forecast</h3><div class="row">';
+            let forecastHtml = '<h3 class="mt-4">Next 7 Days Forecast</h3><div class="row">';
 
             forecastDays.forEach(day => {
                 const date = new Date(day.date).toLocaleDateString();
@@ -63,7 +68,7 @@ function fetchWeather(city) {
                                 <h5 class="card-title">${date}</h5>
                                 <p class="card-text">Avg Temp: ${avgtemp_c}°C</p>
                                 <p class="card-text">${condition.text}</p>
-                                <img src="${condition.icon}" alt="${condition.text}" class="card-img-bottom forecast-icon"> <!-- Added class for specific styling -->
+                                <img src="${condition.icon}" alt="${condition.text}" class="forecast-icon card-img-bottom">
                             </div>
                         </div>
                     </div>`;
@@ -75,4 +80,8 @@ function fetchWeather(city) {
         .catch(error => {
             document.getElementById('forecast').innerHTML = `<p class="text-danger">Error fetching forecast data</p>`;
         });
+
+    // Display current date and time
+    const currentDateTime = new Date();
+    document.getElementById('currentDateTime').innerText = currentDateTime.toLocaleString();
 }
