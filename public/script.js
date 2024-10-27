@@ -15,9 +15,9 @@ document.getElementById('getCurrentLocation').addEventListener('click', function
 });
 
 function fetchWeather(city) {
-    const apiKey = '5fbfe587f7ea4e9aa4480350242710';
+    const apiKey = '7898193361d34c54984122045242710';
     const currentUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3`;
+    const forecastUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
 
     document.getElementById('loader').style.display = 'block'; // Show loader
 
