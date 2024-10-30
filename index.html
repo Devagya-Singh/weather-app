@@ -11,6 +11,8 @@
     <div class="container mt-5">
         <h1 class="text-center display-4 font-weight-bold">SkyScout</h1>
         <div id="currentDateTime" class="text-center mb-4"></div>
+        
+        <!-- User Inputs for Location -->
         <div class="input-group mb-4">
             <input type="text" id="city" class="form-control input-city" placeholder="Enter city name">
             <div class="input-group-append">
@@ -18,17 +20,34 @@
                 <button id="getCurrentLocation" class="btn btn-success btn-lg">Use Current Location</button>
             </div>
         </div>
+
+        <!-- Weather Result Section -->
         <div id="weatherResult" class="text-center"></div>
         <div id="additionalInfo" class="text-center"></div>
         <div id="forecast" class="mt-5 text-center"></div>
         <div id="loader" class="spinner-border" role="status" style="display: none;">
             <span class="sr-only">Loading...</span>
         </div>
+        
+        <!-- Alerts Section -->
+        <div id="weatherAlerts" class="alert-section text-center mt-5"></div>
+        
+        <!-- Satellite Imagery Section -->
+        <div id="satelliteFeed" class="satellite-section mt-5 text-center">
+            <button id="getSatelliteFeed" class="btn btn-info btn-lg">View Satellite Feed</button>
+            <div id="satelliteImage" class="mt-4"></div>
+        </div>
     </div>
+
+    <!-- Footer Section -->
     <footer class="text-center mt-5">
         <p>Need help? <a href="#">Contact Support</a> | <a href="#">FAQ</a></p>
     </footer>
+    
+    <!-- JavaScript -->
     <script src="public/script.js"></script>
+    <script src="public/alerts.js"></script>
+    <script src="public/satellite.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
