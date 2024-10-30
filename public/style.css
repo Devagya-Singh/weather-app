@@ -1,78 +1,21 @@
-body {
-    background-color: #e3f2fd; /* Light blue background */
-    font-family: 'Arial', sans-serif;
-    color: #333; /* Dark text color for contrast */
+.alert-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffebee; /* Light red background for alerts */
+    border: 1px solid #ff5252;
+    border-radius: 10px;
 }
 
-
-h1 {
-    margin-bottom: 30px;
-    color: #1976d2; /* Blue heading color */
-}
-
-.input-city {
-    border: 2px solid #1976d2; /* Blue border */
-    border-radius: 25px;
-}
-
-.input-group .btn {
-    border-radius: 25px; /* Rounded button corners */
-    padding: 10px 15px; /* Adjust padding for smaller size */
-    font-size: 0.875rem; /* Smaller font size */
-}
-
-
-#weatherResult img, #forecast img {
-    margin-top: 10px;
-    width: 100px; /* Adjust as necessary */
-    border-radius: 10px; /* Rounded corners for images */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-}
-
-.card {
-    margin: 10px 0;
-    border-radius: 15px; /* Rounded card corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Card shadow */
-}
-
-footer {
-    margin-top: 50px;
-    padding: 20px 0;
-    background-color: #1976d2; /* Blue footer background */
-    color: white;
-    border-radius: 10px; /* Rounded footer corners */
-}
-
-footer a {
-    color: #FFD700; /* Gold link color */
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.condition-icon {
-    width: 150px; /* Larger size for current weather icon */
-}
-
-.forecast-icon {
-    width: 80px; /* Adjust size for forecast icons */
-}
-
-/* Styles for the info section */
-.info-section {
-    background-color: #ffffff; /* White background for info section */
+.satellite-section {
+    margin-top: 20px;
+    background-color: #f3f3f3;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
 }
 
-.social-links a {
-    color: #1976d2; /* Blue color for social links */
-    text-decoration: none;
-}
-
-.social-links a:hover {
-    text-decoration: underline; /* Underline effect on hover */
+.satellite-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
