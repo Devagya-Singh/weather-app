@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function fetchAlerts() {
     const city = document.getElementById('city').value || "Bhubaneswar"; // Default city for demo
-    const apiKey = 'YOUR_ALERT_API_KEY';
+    const apiKey = '7898193361d34c54984122045242710';
     const alertUrl = `https://api.weatherapi.com/v1/alerts.json?key=${apiKey}&q=${city}`;
 
     fetch(alertUrl)
