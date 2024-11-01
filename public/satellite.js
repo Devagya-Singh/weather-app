@@ -1,6 +1,6 @@
 document.getElementById('getSatelliteFeed').addEventListener('click', function() {
     const city = document.getElementById('city').value || "Bhubaneswar"; // Default city for demo
-    const apiKey = 'YOUR_SATELLITE_API_KEY';
+    const apiKey = 'YSvVi8uIBnefD16xfzvxjaIYSfXEf6w2kQxjcIrB';
     const satelliteUrl = `https://api.nasa.gov/planetary/earth/assets?lon=YOUR_LON&lat=YOUR_LAT&date=YOUR_DATE&dim=0.1&api_key=${apiKey}`;
 
     fetch(satelliteUrl)
