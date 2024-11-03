@@ -48,7 +48,7 @@ function fetchWeather(city) {
         .then(response => response.json())
         .then(data => {
             const forecastDays = data.forecast.forecastday;
-            let forecastHtml = '<h3 class="mt-4">Next 3 Days Forecast</h3><div class="row">';
+            let forecastHtml = '<h3 class="mt-4">Next 7 Days Forecast</h3><div class="row">';
 
             forecastDays.forEach(day => {
                 const date = new Date(day.date).toLocaleDateString();
