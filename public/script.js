@@ -2,7 +2,6 @@ document.getElementById('getWeather').addEventListener('click', function() {
     const city = document.getElementById('city').value;
     fetchWeather(city);
 });
-
 document.getElementById('getCurrentLocation').addEventListener('click', function() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
